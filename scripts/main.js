@@ -6,8 +6,8 @@ function calculateF1Score(predictions, groundTruth) {
 
 // update score on page
 function updateScore() {
-    let predictions = [...];
-    let groundTruth = [...];
+    let predictions = ["A", "B", "C", "A", "B"];
+    let groundTruth = ["A", "A", "C", "A", "B"];
     let score = calculateF1Score(predictions, groundTruth);
     document.getElementById("score").innerHTML = score;
 }
