@@ -1,5 +1,8 @@
 // calculate f1 score 
 function calculateF1Score(predictions, groundTruth) {
+    if (predictions.length === 0 | groundTruth.length === 0 | predictions.length !== groundTruth.length) {
+        return 'Predictions and ground truths need to be of equal length > 0';
+    }
     let truePositives = {'A': 0, 'B': 0, 'C': 0};
     let falsePositives = {'A': 0, 'B': 0, 'C': 0};
     let falseNegatives = {'A': 0, 'B': 0, 'C': 0};
