@@ -14,9 +14,11 @@ function updateScore() {
 
 updateScore();
 
-// create select elements for predictions and ground truth
+// create select elements for predictions and ground truth using Bootstrap's select element
 let predictionsSelect = document.createElement("select");
+predictionsSelect.classList.add("custom-select");
 let groundTruthSelect = document.createElement("select");
+groundTruthSelect.classList.add("custom-select");
 
 // add options to select elements
 let options = ["A", "B", "C"];
@@ -34,4 +36,3 @@ groundTruthSelect.addEventListener("change", updateScore);
 
 // add select elements to the page
 document.body.appendChild(predictionsSelect);
-document.body.appendChild(groundTruthSelect);
