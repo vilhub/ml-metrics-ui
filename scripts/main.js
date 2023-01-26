@@ -3,10 +3,10 @@ function calculateF1Score(predictions, groundTruth) {
     if (predictions.length === 0 | groundTruth.length === 0 | predictions.length !== groundTruth.length) {
         return 'Predictions and ground truths need to be of equal length > 0';
     }
-    let truePositives = {'A': 0, 'B': 0, 'C': 0};
-    let falsePositives = {'A': 0, 'B': 0, 'C': 0};
-    let falseNegatives = {'A': 0, 'B': 0, 'C': 0};
-    let classes = ['A','B','C'];
+    let truePositives = { 'A': 0, 'B': 0, 'C': 0 };
+    let falsePositives = { 'A': 0, 'B': 0, 'C': 0 };
+    let falseNegatives = { 'A': 0, 'B': 0, 'C': 0 };
+    let classes = ['A', 'B', 'C'];
 
     for (let i = 0; i < predictions.length; i++) {
         if (predictions[i] === groundTruth[i]) {
@@ -20,9 +20,17 @@ function calculateF1Score(predictions, groundTruth) {
     let precision = 0;
     let recall = 0;
     let f1Score = 0;
-    for(let cl of classes){
-        precision += truePositives[cl] / (truePositives[cl] + falsePositives[cl]);
-        recall += truePositives[cl] / (truePositives[cl] + falseNegatives[cl]);
+    for (let cl of classes) {
+        if ((truePositives[cl] + falsePositives[cl]) > 0) {
+            precision += truePositives[cl] / (truePositives[cl] + falsePositives[cl]);
+        } else {
+            precision += 1.0;
+        }
+        if ((truePositives[cl] + falseNegatives[cl]) > 0) {
+            recall += truePositives[cl] / (truePositives[cl] + falseNegatives[cl]);
+        } else {
+            recall += 1.0;
+        }
     }
 
     precision /= classes.length;
