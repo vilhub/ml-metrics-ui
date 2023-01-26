@@ -20,11 +20,11 @@ function updateScore() {
 
 document.getElementById("predictionsSelect").addEventListener("change", function () {
     predictions.push(this.value);
-    selectedPredictions.textContent = predictions;
+    selectedPredictions.value = predictions.join(', ');
     updateScore();
 });
 document.getElementById("groundTruthSelect").addEventListener("change", function () {
     groundTruth.push(this.value);
-    selectedGroundTruth.textContent = groundTruth;
+    selectedGroundTruth.value = groundTruth.join(', ');
     updateScore();
 });
