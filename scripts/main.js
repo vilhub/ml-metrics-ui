@@ -12,27 +12,18 @@ function updateScore() {
     document.getElementById("score").innerHTML = score;
 }
 
-updateScore();
+let predictionsSelect = document.getElementById("predictionsSelect");
+let groundTruthSelect = document.getElementById("groundTruthSelect");
+let selectedPredictions = document.getElementById("selectedPredictions");
+let selectedGroundTruth = document.getElementById("selectedGroundTruth");
+let score = document.getElementById("score");
 
-// create select elements for predictions and ground truth using Bootstrap's select element
-let predictionsSelect = document.createElement("select");
-predictionsSelect.classList.add("custom-select");
-let groundTruthSelect = document.createElement("select");
-groundTruthSelect.classList.add("custom-select");
+predictionsSelect.addEventListener("change", function() {
+  selectedPredictions.value = predictionsSelect.value;
+  updateScore();
+});
 
-// add options to select elements
-let options = ["A", "B", "C"];
-for (let option of options) {
-    let opt = document.createElement("option");
-    opt.value = option;
-    opt.innerHTML = option;
-    predictionsSelect.appendChild(opt);
-    groundTruthSelect.appendChild(opt);
-}
-
-// add event listeners to select elements to call updateScore when changed
-predictionsSelect.addEventListener("change", updateScore);
-groundTruthSelect.addEventListener("change", updateScore);
-
-// add select elements to the page
-document.body.appendChild(predictionsSelect);
+groundTruthSelect.addEventListener("change", function() {
+  selectedGroundTruth.value = groundTruthSelect.value;
+  updateScore();
+});

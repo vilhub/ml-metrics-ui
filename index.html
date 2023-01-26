@@ -21,26 +21,45 @@
 </head>
 
 <body>
-    <body>
-        <div class="container">
-          <div class="row">
+    <div class="container">
+        <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="predictionsSelect">Predictions:</label>
-                <select id="predictionsSelect" class="form-control"></select>
-              </div>
+                <div class="form-group">
+                    <label for="predictionsSelect">Predictions:</label>
+                    <select id="predictionsSelect" class="form-control"></select>
+                </div>
             </div>
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="groundTruthSelect">Ground Truth:</label>
-                <select id="groundTruthSelect" class="form-control"></select>
-              </div>
+                <div class="form-group">
+                    <label for="groundTruthSelect">Ground Truth:</label>
+                    <select id="groundTruthSelect" class="form-control"></select>
+                </div>
             </div>
-          </div>
         </div>
-        <script src="scripts/main.js"></script>
-      </body>
-      
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="selectedPredictions">Selected Predictions:</label>
+                    <input type="text" id="selectedPredictions" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="selectedGroundTruth">Selected Ground Truth:</label>
+                    <input type="text" id="selectedGroundTruth" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="score">Score:</label>
+                    <input type="text" id="score" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
